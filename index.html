@@ -222,7 +222,7 @@
     </div>
 
     <hr />
-    <form class="form-signin" onsubmit="alert('Logged in successfully')">
+    <form class="form-signin">
       <h2 class="h3 mb-3 font-weight-normal">Please sign in</h2>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input
@@ -246,7 +246,7 @@
         <label> <input type="checkbox" value="remember-me" data-testid="rememberMe" /> Remember me </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit" data-testid="signin">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+      <div id="loginMessage"></div>
     </form>
 
     <div>
@@ -316,6 +316,11 @@
         dropzone.appendChild(draggableElement);
         event.dataTransfer.clearData();
       }
+
+      $(".form-signin").submit(function (event) {
+        event.preventDefault();
+        $("#loginMessage").append('<h3 class="success-message"> Logged In Successfully</h3>');
+      });
     </script>
   </body>
 </html>
